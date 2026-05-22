@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>to You</title>
+
+<style>
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Georgia, serif;
+  background: #f6f1e7;
+  overflow: hidden;
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #2f2f2f;
+  text-align: center;
+}
+
+/* Envelope */
+.envelope {
+  font-size: 72px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  user-select: none;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
+}
+
+.envelope:hover {
+  transform: scale(1.08);
+}
+
+/* Letter */
+#note {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 70%;
+  max-width: 520px;
+  max-height: 70vh;
+
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+  background: #fffaf0;
+  border: 1px solid #e6dccb;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+
+  padding: 28px;
+  border-radius: 6px;
+
+  line-height: 1.7;
+  text-align: left;
+
+  transition: bottom 0.8s ease;
+
+  bottom: -100vh;
+}
+
+/* Paper texture */
+#note::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.015),
+    rgba(0,0,0,0.015) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+
+  pointer-events: none;
+}
+
+/* Open state */
+#note.show {
+  bottom: 40px;
+}
+
+/* Scrollbar */
+#note::-webkit-scrollbar {
+  width: 8px;
+}
+
+#note::-webkit-scrollbar-thumb {
+  background: #d8cbb7;
+  border-radius: 10px;
+}
+
+/* Close button */
+.close-btn {
+  margin-top: 15px;
+  padding: 8px 14px;
+  border: 1px solid #c8b49c;
+  background: transparent;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  border-radius: 4px;
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  background: #f0e6d6;
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+
+  h1 {
+    font-size: 22px;
+    padding: 0 20px;
+  }
+
+  .envelope {
+    font-size: 58px;
+  }
+
+  #note {
+    width: 82%;
+    max-height: 55vh;
+
+    padding: 20px;
+
+    bottom: -100vh;
+  }
+
+  #note.show {
+    bottom: 20px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+  <h1>To Annabella 😼</h1>
+  
+  <h2>Happy Birthdayy!!</h2>
+  <!-- Envelope -->
+  <div class="envelope" onclick="openLetter()">✉️</div>
+
+  <!-- Letter -->
+  <div id="note">
+    <p>
+      Well, happy birthday Annabella! Today is the day you get to experience being 14. There are many things that I haven't thanked you for and many things I wished I did looking back. Ever since you came to our school, I never wanted anything else but to be your friend. I knew from the moment I saw you, you would be a really good friend with a kindhearted soul.
+    </p>
+
+    <p>
+      Having you as my friend means so much to me. Thinking about being your friend always puts a smile on my face because of who you are. You are the sole reason why I have faith in myself because you fascinate me in nearly every way. I love having someone to look up to, like you. So, I thank you for being someone everyone can count on. Thank you for going with me to "risky" places I know no one else would agree to. Thank you for keeping your word and finding my Tiktok account and stalking it just so that you can find out what I was talking about (😭😭). Thank you for ensuring safety to others and looking out for them. And last but not least, thank you for being apart of my life. Your prescence made a huge impact on me, and I don't really know how I can thank you more. So once again, happy birthday. I really hope you enjoy the rest of the year as a 14 year old, and I wish you many more years to come. 
+    </p>
+    <p>
+      From, Princes 
+    </p>
+     <button class="close-btn" onclick="closeLetter()">Close</button>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById("note").classList.add("show");
+    }
+    function closeLetter() {
+      document.getElementById("note").classList.remove("show");
+    }
+  </script>
+
+</body>
+</html>
